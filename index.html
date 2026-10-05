@@ -25,6 +25,16 @@ a{color:#F3EEE6}a:hover{color:#D9B86C}
 a:focus-visible{outline:1px solid #D9B86C;outline-offset:4px}
 .mc-gold-btn:hover{background:#E6C77F !important;color:#050505 !important}
 .mc-line-btn:hover{border-color:#D9B86C !important;color:#D9B86C !important}
+@property --mc-a{syntax:'<angle>';initial-value:0deg;inherits:false}
+.mc-gold-btn{position:relative;overflow:hidden;isolation:isolate;transition:background .25s,box-shadow .25s}
+.mc-gold-btn::before{content:"";position:absolute;inset:0;padding:2px;border-radius:inherit;background:conic-gradient(from var(--mc-a),transparent 0deg,transparent 250deg,rgba(255,248,225,.35) 290deg,#FFFFFF 325deg,rgba(255,248,225,.35) 345deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:mc-spin 3s linear infinite;pointer-events:none}
+.mc-gold-btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%);transform:translateX(-180%) skewX(-18deg);animation:mc-sheen 4.2s ease-in-out infinite;pointer-events:none;z-index:1}
+.mc-gold-btn:hover{box-shadow:0 0 0 1px rgba(217,184,108,.4),0 10px 30px rgba(217,184,108,.25)}
+.mc-float{animation:mc-float 3.4s ease-in-out infinite;box-shadow:0 14px 34px rgba(217,184,108,.22)}
+@keyframes mc-spin{to{--mc-a:360deg}}
+@keyframes mc-sheen{0%,55%{transform:translateX(-180%) skewX(-18deg)}80%,100%{transform:translateX(260%) skewX(-18deg)}}
+@keyframes mc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media (prefers-reduced-motion: reduce){.mc-gold-btn::before,.mc-gold-btn::after,.mc-float{animation:none}.mc-gold-btn::after{display:none}}
 @media (max-width:1180px){
   .mc-header{padding-left:32px !important;padding-right:32px !important;gap:20px !important}
   .mc-nav{gap:18px !important;letter-spacing:0.1em !important}
@@ -201,7 +211,7 @@ a:focus-visible{outline:1px solid #D9B86C;outline-offset:4px}
           <p style="margin: 0; font-family: 'Italiana', 'Didot', Georgia, serif; font-size: 36px; line-height: 1.15; color: #F7F3EC">Estes são só alguns dos nossos modelos em exposição.</p>
           <p style="margin: 0; font-size: 17px; color: #BDB5A8">Temos mais de <span style="color: #D9B86C; font-weight: 500">10 mil calçados</span> disponíveis. Peça o catálogo completo e atualizado pelo WhatsApp.</p>
         </div>
-        <a class="mc-gold-btn" href="https://wa.me/447928131371?text=Ol%C3%A1%21%20Quero%20receber%20o%20cat%C3%A1logo%20atualizado%20da%20Martins%20Confort." style="flex: 0 0 auto; text-decoration: none; background: #D9B86C; color: #050505; padding: 18px 32px; font-size: 13px; letter-spacing: 0.2em; font-weight: 600; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; text-align: center">Solicitar catálogo atualizado</a>
+        <a class="mc-gold-btn mc-float" href="https://wa.me/447928131371?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20comprar%20no%20atacado.%20Poderiam%2C%20por%20favor%2C%20me%20enviar%20o%20cat%C3%A1logo%20atualizado%20de%20voc%C3%AAs%3F" style="flex: 0 0 auto; text-decoration: none; background: #D9B86C; color: #050505; padding: 18px 32px; font-size: 13px; letter-spacing: 0.2em; font-weight: 600; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; text-align: center">Solicitar catálogo atualizado</a>
       </div>
     </div>
   </section>
